@@ -20,21 +20,15 @@ public class FindBeerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_beer);
-        beerTypes = getResources().getStringArray(R.array.beer_types);
 
         spinner = (Spinner)findViewById(R.id.color);
         brands = (TextView)findViewById(R.id.brands);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, beerTypes);
-        spinner.setAdapter(adapter);
-
-
-
     }
 
-    public void onClick(View view) {
 
-      //  brands.setText(BeerTypes.getBeer());
+    public void onClickFindBeer(View view) {
+
 
     }
 }
