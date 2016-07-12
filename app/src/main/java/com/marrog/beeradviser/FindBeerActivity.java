@@ -10,9 +10,12 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FindBeerActivity extends AppCompatActivity {
 
-    Spinner spinner;
+    Spinner color;
     String[] beerTypes = new String[3];
     TextView brands;
 
@@ -21,7 +24,7 @@ public class FindBeerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_beer);
 
-        spinner = (Spinner)findViewById(R.id.color);
+        color = (Spinner)findViewById(R.id.color);
         brands = (TextView)findViewById(R.id.brands);
 
     }
@@ -29,6 +32,28 @@ public class FindBeerActivity extends AppCompatActivity {
 
     public void onClickFindBeer(View view) {
 
+
+        String beerType = String.valueOf(color.getSelectedItem());
+        List<String> list = new ArrayList<String>();
+
+        BeerExpert beerExper = new BeerExpert();
+        list = beerExper.getBrands(beerType);
+
+        String brandsString = new String();
+
+        for(int i = 0; i < list.size(); i++){
+
+            if(i == 0) {
+              brandsString = list.get(i);
+            }
+            else {
+
+                brandsString = brandsString + ", " + String.valueOf(list.get(i));
+            }
+
+        }
+
+        brands.setText(brandsString);
 
     }
 }

@@ -1,18 +1,30 @@
 package com.marrog.beeradviser;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by user on 11.07.2016.
  */
 public class BeerExpert {
 
-    public static ArrayList<String> getBrands(String beerType){
+    List<String> getBrands(String color){
 
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> brands = new ArrayList<String>();
 
+        if (color.equals("amber")){
 
-        return list;
+            brands.add("Ambassadore");
+            brands.add("Guiness");
+
+        }
+        else {
+
+            brands.add("Kozel");
+            brands.add("Gus");
+        }
+
+        return brands;
 
     }
 }
