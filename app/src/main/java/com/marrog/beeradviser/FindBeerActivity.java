@@ -36,22 +36,18 @@ public class FindBeerActivity extends AppCompatActivity {
         String beerType = String.valueOf(color.getSelectedItem());
         List<String> list = new ArrayList<String>();
 
-        BeerExpert beerExper = new BeerExpert();
-        list = beerExper.getBrands(beerType);
+        BeerExpert beerExpert = new BeerExpert();
+        list = beerExpert.getBrands(beerType);
 
-        String brandsString = new String();
+        StringBuilder brandsString = new StringBuilder();
 
-        for(int i = 0; i < list.size(); i++){
+        for(String x : list){
 
-            if(i == 0) {
-              brandsString = list.get(i);
-            }
-            else {
-
-                brandsString = brandsString + ", " + String.valueOf(list.get(i));
-            }
+            brandsString.append(x).append("\n");
 
         }
+
+
 
         brands.setText(brandsString);
 
